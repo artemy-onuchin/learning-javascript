@@ -1,0 +1,16 @@
+{
+  "name": "learning-javascript",
+  "version": "1.0.0",
+  "description": "Репозиторий с кодом уроков по js, которые я проходил в интернете.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/artemy-onuchin/learning-javascript.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Artemy Onuchin",
+  "license": "MIT",
+  "homepage": "https://github.com/artemy-onuchin/learning-javascript#readme"
+}
