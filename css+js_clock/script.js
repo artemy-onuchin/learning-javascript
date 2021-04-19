@@ -1,28 +1,23 @@
-const hoursHand = document.querySelector('.hand__hour')
-const minuteHand = document.querySelector('.hand__minute')
-const secondHand = document.querySelector('.hand__second')
-
+const hoursHand = document.querySelector('.hand__container--hour')
+const minuteHand = document.querySelector('.hand__container--minutes')
+const secondHand = document.querySelector('.hand__container--seconds')
 
 function setDate() {
-    const now = new Date();
+    const date = new Date();
 
-    const hours = now.getHours()
-    const hoursDegrees = (((hours / 60) * 360) + 90);
-    hoursHand.style.transform = `rotate(${hoursDegrees}deg)`
+    const hours = date.getHours();
+    const seconds = date.getSeconds();
+    const minutes = date.getMinutes();
 
-    const minutes = now.getMinutes()
-    const minutesDegrees = (((minutes / 60) * 360) + 90);
-    minuteHand.style.transform = `rotate(${minutesDegrees}deg)`
+    const hoursDegrees = 360 / 12 * hours + 30 / 60 * minutes + 0.5 / 60 * seconds - 0.75;
+    const secondsDegrees = 360 / 60 * seconds - 0.75;
+    const minutesDegrees = 360 / 60 * minutes - 0.75;
 
-    const seconds = now.getSeconds()
-    const secondsDegrees = (((seconds / 60) * 360) + 90);
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`
-
-    console.log('---')
-    console.log(hours)
-    console.log(minutes)
-    console.log(seconds)
-    console.log('---')
+    hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+    minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
 }
 
-setInterval(setDate, 1000)
+setInterval(setDate, 1000);
+
+setDate();
